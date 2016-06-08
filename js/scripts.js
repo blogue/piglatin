@@ -1,10 +1,11 @@
 var sentenceSplitter = function(sentence) {
-    // debugger;
     var piglatinSentence = [];
     var sentenceSplit = sentence.split(" ");
-    for (i = 0; i < sentenceSplit.length; i += 1) {
+    var loopLimit = sentenceSplit.length;
+    for (i = 0; i < loopLimit; i += 1) {
       // console.log(evaluateText(sentenceSplit[i]));
       // console.log(sentenceSplit[i]);
+      // debugger;
       piglatinSentence.push(evaluateText(sentenceSplit[i]));
     }
     console.log(piglatinSentence);
@@ -42,10 +43,9 @@ var evaluateText = function(input) {
   if (inputArr[0] === "a" || inputArr[0] === "e" || inputArr[0] === "i" || inputArr[0] === "o" || inputArr[0] === "u") {
     inputArr.push('ay')
     return inputArr;
-    }
+  }
 
-  for (i=0; i<=1; i++) {
-
+  for (j=0; j<=1; j++) {
    if (inputArr[0] !== "a" && inputArr[0] !== "e" && inputArr[0] !== "i" && inputArr[0] !== "o" && inputArr[0] !== "u") {
      inputArr.push(inputArr.shift());
    }
