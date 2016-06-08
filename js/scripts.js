@@ -3,12 +3,25 @@ var sentenceSplitter = function(sentence) {
     var piglatinSentence = [];
     var sentenceSplit = sentence.split(" ");
     for (i = 0; i < sentenceSplit.length; i += 1) {
-      console.log(evaluateText(sentenceSplit[i]));
+      // console.log(evaluateText(sentenceSplit[i]));
       // console.log(sentenceSplit[i]);
-
+      piglatinSentence.push(evaluateText(sentenceSplit[i]));
     }
-    return piglatinSentence;
+    console.log(piglatinSentence);
+    return sentenceJoiner(piglatinSentence);
 }
+var sentenceJoiner = function(wordJoin) {
+  finalSentence = "";
+  for (i = 0; i < wordJoin.length; i++) {
+    // wordJoin[i].join(" ")
+    var joinedWord = wordJoin[i].join('');
+    joinedWord += " ";
+    finalSentence += joinedWord;
+  }
+  return finalSentence;
+}
+
+
 
 
 var evaluateText = function(input) {
@@ -46,11 +59,11 @@ var evaluateText = function(input) {
 
 $(document).ready(function() {
   $("#userInput").submit(function(event){
-    var sentenceToTranslate = $("#userSentence").val();
+    var sentenceToTranslate = $("#userSentence").val().toLowerCase();
 
 
     // $(".output").append(evaluateText(sentenceToTranslate));
-    $(".output").append(sentenceSplitter(sentenceToTranslate));
+    $(".output h1").text(sentenceSplitter(sentenceToTranslate));
     event.preventDefault();
   });
 });
