@@ -2,12 +2,12 @@ var sentenceSplitter = function(sentence) {
     // debugger;
     var piglatinSentence = [];
     var sentenceSplit = sentence.split(" ");
-    for (i = 0; i <= sentenceSplit.length; i += 1) {
-      // evaluateText(sentenceSplit[i]);
-      piglatinSentence.push(evaluateText(sentenceSplit[i]));
+    for (i = 0; i < sentenceSplit.length; i += 1) {
+      console.log(evaluateText(sentenceSplit[i]));
+      // console.log(sentenceSplit[i]);
 
     }
-    console.log(piglatinSentence);
+    return piglatinSentence;
 }
 
 
@@ -50,7 +50,7 @@ $(document).ready(function() {
 
 
     // $(".output").append(evaluateText(sentenceToTranslate));
-    console.log(sentenceSplitter(sentenceToTranslate));
+    $(".output").append(sentenceSplitter(sentenceToTranslate));
     event.preventDefault();
   });
 });
